@@ -1,11 +1,43 @@
 ﻿using NP.Utilities;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace NP.Avalonia.UniDockService
 {
-    public class DockItemViewModel : VMBase
+    public interface IDockItemViewModel
+    {
+        bool IsDockVisible { get; set; }
+
+        string? DockId { get; }
+
+        string? DefaultDockGroupId { get; }
+
+        double DefaultDockOrderInGroup { get; }
+
+        bool IsSelected { get; set; }
+
+        bool IsActive { get; set; }
+
+        bool CanFloat { get; }
+
+        bool CanClose { get; }
+
+        bool IsPredefined { get; }
+
+        object? Header { get; }
+
+        string? HeaderContentTemplateResourceKey { get; }
+
+        object Content { get; }
+
+        string? ContentTemplateResourceKey { get; }
+    }
+
+    public class DockItemViewModelBase : VMBase, IDockItemViewModel
     {
         #region IsDockVisible Property
         private bool _isDockVisible = true;
+        [XmlAttribute]
         public bool IsDockVisible
         {
             get
@@ -25,15 +57,18 @@ namespace NP.Avalonia.UniDockService
         }
         #endregion IsDockVisible Property
 
+        [XmlAttribute]
         public string? DockId { get; set; }
-
+        
+        [XmlAttribute]
         public string? DefaultDockGroupId { get; set; }
 
-        public int DefaultDockOrderInGroup { get; set; } = default;
-
+        [XmlAttribute]
+        public double DefaultDockOrderInGroup { get; set; } = default;
 
         #region IsSelected Property
         private bool _isSelected = default;
+        [XmlIgnore]
         public bool IsSelected
         {
             get
@@ -55,6 +90,7 @@ namespace NP.Avalonia.UniDockService
 
         #region IsActive Property
         private bool _isActive = default;
+        [XmlIgnore]
         public bool IsActive
         {
             get
@@ -74,98 +110,106 @@ namespace NP.Avalonia.UniDockService
         }
         #endregion IsActive Property
 
+        [XmlAttribute]
         public bool CanFloat { get; set; } = true;
 
+        [XmlAttribute]
         public bool CanClose { get; set; } = true;
 
-        public bool IsPredefined { get; set; } = true;
-
-        public bool IsConstructed { get; set; }
+        [XmlAttribute]
+        public bool IsPredefined { get; set; } = false;
 
         #region HeaderContent Property
-        private object? _headerContent;
-        public object? HeaderContent
+        [XmlIgnore]
+        public virtual object? Header
         {
-            get
-            {
-                return this._headerContent;
-            }
-            set
-            {
-                if (this._headerContent == value)
-                {
-                    return;
-                }
-
-                this._headerContent = value;
-                this.OnPropertyChanged(nameof(HeaderContent));
-            }
+            get;
+            set;
         }
         #endregion HeaderContent Property
 
         #region HeaderContentTemplateResourceKey Property
-        private string? _headerContentTemplateResourceKey;
+        [XmlAttribute]
         public string? HeaderContentTemplateResourceKey
         {
-            get
-            {
-                return this._headerContentTemplateResourceKey;
-            }
-            set
-            {
-                if (this._headerContentTemplateResourceKey == value)
-                {
-                    return;
-                }
-
-                this._headerContentTemplateResourceKey = value;
-                this.OnPropertyChanged(nameof(HeaderContentTemplateResourceKey));
-            }
+            get;
+            set;
         }
         #endregion HeaderContentTemplateResourceKey Property
 
 
         #region Content Property
-        private object? _content;
-        public object? Content
+        [XmlIgnore]
+        public virtual object? Content
         {
-            get
-            {
-                return this._content;
-            }
-            set
-            {
-                if (this._content == value)
-                {
-                    return;
-                }
-
-                this._content = value;
-                this.OnPropertyChanged(nameof(Content));
-            }
+            get;
+            set;
         }
         #endregion Content Property
 
         #region ContentTemplateResourceKey Property
-        private string? _contentTemplateResourceKey;
+        [XmlAttribute]
         public string? ContentTemplateResourceKey
+        {
+            get;
+            set;
+        }
+        #endregion ContentTemplateResourceKey Property
+
+        public void MakeActive()
+        {
+            IsActive = true;
+        }
+
+        public void Select()
+        {
+            IsSelected = true;
+        }
+    }
+
+    public class DockItemViewModel<TViewModel> : DockItemViewModelBase
+        where TViewModel : class
+    {
+        #region TheVM Property
+        private TViewModel? _vm;
+        [XmlElement]
+        public TViewModel? TheVM
         {
             get
             {
-                return this._contentTemplateResourceKey;
+                return this._vm;
             }
             set
             {
-                if (this._contentTemplateResourceKey == value)
+                if (this._vm == value)
                 {
                     return;
                 }
 
-                this._contentTemplateResourceKey = value;
-                this.OnPropertyChanged(nameof(ContentTemplateResourceKey));
+                this._vm = value;
+                this.OnPropertyChanged(nameof(TheVM));
             }
         }
-        #endregion ContentTemplateResourceKey Property
+        #endregion TheVM Property
 
+        [XmlIgnore]
+        public override object? Header
+        {
+            get => TheVM;
+            set
+            {
+
+            }
+        }
+
+        [XmlIgnore]
+        public override object? Content
+        {
+            get => TheVM;
+            set
+            {
+
+            }
+        }
     }
 }
