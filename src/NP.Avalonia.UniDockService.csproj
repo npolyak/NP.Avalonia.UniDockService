@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -8,6 +8,11 @@
   <ItemGroup>
     <None Remove="*.nuspec" />
     <None Remove="*.nuget" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="*.nupkg" />
+    <None Remove="*.nuspec" />
   </ItemGroup>
 
   <ItemGroup>
