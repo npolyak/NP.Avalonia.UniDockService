@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="*.nuspec" />
+    <None Remove="*.nuget" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\NP.Utilities\src\NP.Utilities.csproj" />
   </ItemGroup>
 
