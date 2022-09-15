@@ -1,4 +1,5 @@
 ﻿using NP.Utilities;
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -37,6 +38,8 @@ namespace NP.Avalonia.UniDockService
 
     public class DockItemViewModelBase : VMBase, IDockItemViewModel
     {
+        public event Action<IDockItemViewModel>? RemovedEvent;
+
         #region IsDockVisible Property
         private bool _isDockVisible = true;
         [XmlAttribute]
