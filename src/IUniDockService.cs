@@ -7,6 +7,8 @@ namespace NP.Avalonia.UniDockService
     {
         public event Action<DockItemViewModelBase> DockItemRemovedEvent;
 
+        public event Action<DockItemViewModelBase> DockItemSelectionChangedEvent;
+
         ObservableCollection<DockItemViewModelBase> DockItemsViewModels { get; set; }
 
         void SaveToFile(string filePath);
