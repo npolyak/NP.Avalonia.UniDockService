@@ -5,6 +5,8 @@ namespace NP.Avalonia.UniDockService
 {
     public interface IUniDockService
     {
+        public event Action<DockItemViewModelBase> DockItemAddedEvent;
+
         public event Action<DockItemViewModelBase> DockItemRemovedEvent;
 
         public event Action<DockItemViewModelBase> DockItemSelectionChangedEvent;
