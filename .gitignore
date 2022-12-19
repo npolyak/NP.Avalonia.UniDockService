@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/bin/Debug/net6.0
+/src/obj
+/src/NP.Avalonia.UniDockService.1.0.2.nupkg
+/src/NP.Avalonia.UniDockService.1.0.1.nupkg
+/src/NP.Avalonia.UniDockService.1.0.0.nupkg
