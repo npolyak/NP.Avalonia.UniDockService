@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "NP.Avalonia.UniDockService/1.0.0": {
+        "dependencies": {
+          "NP.Utilities": "1.0.0"
+        },
+        "runtime": {
+          "NP.Avalonia.UniDockService.dll": {}
+        }
+      },
+      "NP.Utilities/1.0.0": {
+        "runtime": {
+          "NP.Utilities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NP.Avalonia.UniDockService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NP.Utilities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
