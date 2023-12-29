@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace NP.Avalonia.UniDockService
+namespace NP.Ava.UniDockService
 {
     public interface IDockItemViewModel
     {

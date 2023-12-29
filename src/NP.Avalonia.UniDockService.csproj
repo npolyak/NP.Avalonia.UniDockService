@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>NP.Avalonia.UniDockService</PackageId>
+		<PackageId>NP.Ava.UniDockService</PackageId>
 		<Authors>Nick Polyak, Ph. D.</Authors>
 		<Version>1.0.5</Version>
 		<Copyright>Nick Polyak 2023</Copyright>

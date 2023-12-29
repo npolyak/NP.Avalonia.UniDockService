@@ -1,4 +1,4 @@
-﻿namespace NP.Avalonia.UniDockService
+﻿namespace NP.Ava.UniDockService
 {
     public enum GroupKind
     {
