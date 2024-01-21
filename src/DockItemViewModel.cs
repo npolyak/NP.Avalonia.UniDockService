@@ -31,7 +31,7 @@ namespace NP.Ava.UniDockService
 
         string? HeaderContentTemplateResourceKey { get; }
 
-        object Content { get; }
+        object? Content { get; }
 
         string? ContentTemplateResourceKey { get; }
     }
@@ -118,23 +118,79 @@ namespace NP.Ava.UniDockService
         }
         #endregion IsActive Property
 
-        [XmlAttribute]
-        public bool CanFloat { get; set; } = true;
 
+        #region CanFloat Property
+        private bool _canFloat = true;
         [XmlAttribute]
-        public bool CanClose { get; set; } = true;
+        public bool CanFloat
+        {
+            get
+            {
+                return this._canFloat;
+            }
+            set
+            {
+                if (this._canFloat == value)
+                {
+                    return;
+                }
+
+                this._canFloat = value;
+                this.OnPropertyChanged(nameof(CanFloat));
+            }
+        }
+        #endregion CanFloat Property
+
+
+        #region CanClose Property
+        private bool _canClose = true;
+        [XmlAttribute]
+        public bool CanClose
+        {
+            get
+            {
+                return this._canClose;
+            }
+            set
+            {
+                if (this._canClose == value)
+                {
+                    return;
+                }
+
+                this._canClose = value;
+                this.OnPropertyChanged(nameof(CanClose));
+            }
+        }
+        #endregion CanClose Property
+
 
         [XmlAttribute]
         public bool IsPredefined { get; set; } = false;
 
-        #region HeaderContent Property
+
+        #region Header Property
+        private object? _header;
         [XmlIgnore]
         public virtual object? Header
         {
-            get;
-            set;
+            get
+            {
+                return this._header;
+            }
+            set
+            {
+                if (this._header == value)
+                {
+                    return;
+                }
+
+                this._header = value;
+                this.OnPropertyChanged(nameof(Header));
+            }
         }
-        #endregion HeaderContent Property
+        #endregion Header Property
+
 
         #region HeaderContentTemplateResourceKey Property
         [XmlAttribute]
@@ -148,10 +204,23 @@ namespace NP.Ava.UniDockService
 
         #region Content Property
         [XmlIgnore]
+        private object? _content;
         public virtual object? Content
         {
-            get;
-            set;
+            get
+            {
+                return this._content;
+            }
+            set
+            {
+                if (this._content == value)
+                {
+                    return;
+                }
+
+                this._content = value;
+                this.OnPropertyChanged(nameof(Content));
+            }
         }
         #endregion Content Property
 
