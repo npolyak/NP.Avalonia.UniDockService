@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>NP.Ava.UniDockService</PackageId>
 		<Authors>Nick Polyak, Ph. D.</Authors>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 		<Copyright>Nick Polyak 2023</Copyright>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Description>Non-Visual interface to UniDock to be used in non-visual projects (e.g. those containing the View Models)</Description>
@@ -38,7 +38,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)'=='Release'">
-		<PackageReference Include="NP.Utilities" Version="1.0.22" />
+		<PackageReference Include="NP.Utilities" Version="1.0.23" />
 	</ItemGroup>
 
 </Project>
