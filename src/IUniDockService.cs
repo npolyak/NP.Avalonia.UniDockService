@@ -13,6 +13,16 @@ namespace NP.Ava.UniDockService
 
         ObservableCollection<DockItemViewModelBase> DockItemsViewModels { get; set; }
 
+        public string? LayoutName { get; set; }
+
+        public string? TabbedDockControlClasses { get; set; }
+
+        public string? DefaultTabItemsClasses { get; set; }
+
+        public bool DragDropWithinSingleWindow { get; set; }
+
+        public IUniDockService CreateChildService();
+
         void SaveToFile(string filePath);
         void SaveDockManagerParamsToStream(Stream stream);
 
