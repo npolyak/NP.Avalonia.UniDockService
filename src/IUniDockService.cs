@@ -34,6 +34,8 @@ namespace NP.Ava.UniDockService
         void SaveViewModelsToFile(string filePath);
 
         void SaveViewModelsToStream(Stream stream);
+        
+        string SaveDockManagerParamsToStr();
 
         void RestoreViewModelsFromFile(string filePath, params Type[] extraTypes);
 
