@@ -31,9 +31,9 @@ namespace NP.Ava.UniDockService
         void RestoreDockManagerParamsFromStream(Stream stream,
                                                 bool restorePredefinedWindowsPositionParams = false);
 
-        void SaveViewModelsToFile(string filePath);
+        void SaveViewModelsToFile(string filePath, params Type[] extraTypes);
 
-        void SaveViewModelsToStream(Stream stream);
+        void SaveViewModelsToStream(Stream stream, params Type[] extraTypes);
         
         string SaveDockManagerParamsToStr();
 
