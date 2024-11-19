@@ -203,8 +203,8 @@ namespace NP.Ava.UniDockService
 
 
         #region Content Property
-        [XmlIgnore]
         private object? _content;
+        [XmlIgnore]
         public virtual object? Content
         {
             get

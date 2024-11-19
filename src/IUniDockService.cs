@@ -21,15 +21,23 @@ namespace NP.Ava.UniDockService
 
         public bool DragDropWithinSingleWindow { get; set; }
 
-        public IUniDockService CreateChildService();
+        public IUniDockService CreateChildService(string? childLayoutName);
+
+        bool LayoutExists { get; }
+
+        void ClearFolder();
 
         void SaveToFile(string filePath);
         void SaveDockManagerParamsToStream(Stream stream);
 
+        void SaveLayout(string? baseFolder = null);
+        
         void RestoreFromFile(string filePath,
                              bool restorePredefinedWindowsPositionParams = false);
         void RestoreDockManagerParamsFromStream(Stream stream,
                                                 bool restorePredefinedWindowsPositionParams = false);
+        
+        void RestoreLayout(string? baseFolder = null);
 
         void SaveViewModelsToFile(string filePath, params Type[] extraTypes);
 
