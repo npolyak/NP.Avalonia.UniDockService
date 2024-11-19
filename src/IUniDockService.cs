@@ -34,7 +34,11 @@ namespace NP.Ava.UniDockService
         void SaveViewModelsToFile(string filePath, params Type[] extraTypes);
 
         void SaveViewModelsToStream(Stream stream, params Type[] extraTypes);
-        
+
+        void AddExternalVmType(Type externalVmType);
+
+        void AddExternalVmTypes(params Type[] externalVmTypes);
+
         string SaveDockManagerParamsToStr();
 
         void RestoreViewModelsFromFile(string filePath, params Type[] extraTypes);
