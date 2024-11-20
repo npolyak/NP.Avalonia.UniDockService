@@ -60,5 +60,7 @@ namespace NP.Ava.UniDockService
         DockObjectInfo? GetParentGroupInfo(string? dockId);
 
         DockObjectInfo? GetGroupByDockId(string? dockId);
+
+        object? GetRootGroup();
     }
 }
