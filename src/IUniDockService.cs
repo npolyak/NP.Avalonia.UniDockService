@@ -43,6 +43,12 @@ namespace NP.Ava.UniDockService
 
         void SaveViewModelsToStream(Stream stream, params Type[] extraTypes);
 
+        string SaveDockManagerParamsToStr();
+
+        string SaveViewModelsToStr();
+
+        (string layoutStr, string vmStr) SaveLayoutToStr();
+
         void AddExtraVmType(Type externalVmType);
 
         void AddExtraVmTypes(params Type[] externalVmTypes);
@@ -51,11 +57,12 @@ namespace NP.Ava.UniDockService
 
         void AddExtraChildVmTypes(params Type[] extraChildVmTypes);
 
-        string SaveDockManagerParamsToStr();
-
         void RestoreViewModelsFromFile(string filePath, params Type[] extraTypes);
 
         void RestoreViewModelsFromStream(Stream stream, params Type[] extraTypes);
+
+        void RestoreFromStr(string str, bool restorePredefinedWindowsPositionParams = false);
+        void RestoreLayoutFromStrs(string layoutStr, string vmStr);
 
         DockObjectInfo? GetParentGroupInfo(string? dockId);
 
