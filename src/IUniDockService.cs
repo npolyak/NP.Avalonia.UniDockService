@@ -62,5 +62,7 @@ namespace NP.Ava.UniDockService
         DockObjectInfo? GetGroupByDockId(string? dockId);
 
         object? GetRootGroup();
+
+        string GetUniqueLayoutName();
     }
 }
