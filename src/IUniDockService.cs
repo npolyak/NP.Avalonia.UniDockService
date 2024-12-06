@@ -21,7 +21,7 @@ namespace NP.Ava.UniDockService
 
         public bool DragDropWithinSingleWindow { get; set; }
 
-        public IUniDockService CreateChildService(string? childLayoutName);
+        public IUniDockService CreateChildService(string? childLayoutName, string? tabDockControlClasses = null);
 
         bool LayoutExists { get; }
 
