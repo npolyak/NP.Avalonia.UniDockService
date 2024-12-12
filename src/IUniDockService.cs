@@ -49,6 +49,8 @@ namespace NP.Ava.UniDockService
 
         (string layoutStr, string vmStr) SaveLayoutToStr();
 
+        void SetRestorationStrs(string? dockParamsStr, string? vmParamsStr);
+
         void AddExtraVmType(Type externalVmType);
 
         void AddExtraVmTypes(params Type[] externalVmTypes);
