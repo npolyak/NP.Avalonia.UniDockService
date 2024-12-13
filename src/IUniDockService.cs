@@ -39,6 +39,8 @@ namespace NP.Ava.UniDockService
         
         void RestoreLayout(string? baseFolder = null);
 
+        void RestoreDefaultLayout();
+
         void SaveViewModelsToFile(string filePath, params Type[] extraTypes);
 
         void SaveViewModelsToStream(Stream stream, params Type[] extraTypes);
