@@ -12,6 +12,9 @@ namespace NP.Ava.UniDockService
         public event Action<DockItemViewModelBase> DockItemSelectionChangedEvent;
 
         ObservableCollection<DockItemViewModelBase> DockItemsViewModels { get; set; }
+        
+        public event Action<object> PredefinedDataContextAddedEvent;
+        public event Action<object> PredefinedDataContextRemovedEvent;
 
         public string? LayoutName { get; set; }
 
