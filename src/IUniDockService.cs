@@ -14,7 +14,9 @@ namespace NP.Ava.UniDockService
 
         ObservableCollection<DockItemViewModelBase> DockItemsViewModels { get; set; }
 
-        public List<string> DockItemTypes { get; }
+        List<string> DockItemTypes { get; }
+
+        IEnumerable<object> AllViewModels { get; }
 
         public event Action<object> PredefinedDataContextAddedEvent;
         public event Action<object> PredefinedDataContextRemovedEvent;
