@@ -1,8 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace NP.Ava.UniDockService
 {
-    public interface IUniDockService
+    public interface IUniDockService : INotifyPropertyChanged
     {
         public event Action<DockItemViewModelBase> DockItemAddedEvent;
 
@@ -13,7 +14,7 @@ namespace NP.Ava.UniDockService
 
         ObservableCollection<DockItemViewModelBase> DockItemsViewModels { get; set; }
 
-        public ObservableCollection<string> DockItemTypes { get; }
+        public List<string> DockItemTypes { get; }
 
         public event Action<object> PredefinedDataContextAddedEvent;
         public event Action<object> PredefinedDataContextRemovedEvent;
