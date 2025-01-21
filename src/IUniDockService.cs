@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace NP.Ava.UniDockService
 {
@@ -7,17 +6,19 @@ namespace NP.Ava.UniDockService
     {
         public event Action<DockItemViewModelBase> DockItemAddedEvent;
 
+        // this works for only for View Model based events.
         public event Action<DockItemViewModelBase> DockItemRemovedEvent;
 
         public event Action<DockItemViewModelBase> DockItemSelectionChangedEvent;
 
         ObservableCollection<DockItemViewModelBase> DockItemsViewModels { get; set; }
-        
+
+        public ObservableCollection<string> DockItemTypes { get; }
+
         public event Action<object> PredefinedDataContextAddedEvent;
         public event Action<object> PredefinedDataContextRemovedEvent;
 
         public string? LayoutName { get; set; }
-
         public string? TabbedDockControlClasses { get; set; }
 
         public string? DefaultTabItemsClasses { get; set; }
